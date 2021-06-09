@@ -23,9 +23,9 @@ server
 //configurar arquivos estáticos (css, scripts, imagens)
 .use(express.static("public"))
 //rotas da aplicação
-.get("/", pageLanding)
-.get("/study", pageStudy)
-.get("/give-classes", pageGiveClasses)
-.post("/save-classes", saveClasses)
+.get("views/", pageLanding)
+.get("views/study", pageStudy)
+.get("views/give-classes", pageGiveClasses)
+.post("views/save-classes", saveClasses)
 //start do servidor
 .listen(5500)
