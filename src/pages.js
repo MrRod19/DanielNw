@@ -3,7 +3,7 @@ const Database = require("./database/db")
 const { subjects, weekdays, getSubject, convertHoursToMinutes } = require("./utils/format")
 
 function pageLanding(req, res) {
-    return res.render("index.html")
+    return res.render("../../index.html")
 }
 
 async function pageStudy(req, res) {
@@ -11,7 +11,7 @@ async function pageStudy(req, res) {
 
 
      if (!filters.subject || !filters.weekday || !filters.time) {
-         return res.render("study.html", { filters, subjects, weekdays })
+         return res.render("views/study.html", { filters, subjects, weekdays })
      }
     
      //converter horas em minutos
@@ -41,7 +41,7 @@ async function pageStudy(req, res) {
              proffy.subject = getSubject(proffy.subject)
          })
 
-         return res.render("study.html", { proffys, subjects, filters, weekdays })
+         return res.render("views/study.html", { proffys, subjects, filters, weekdays })
 
      } catch (error) {
          console.log(error)
@@ -51,7 +51,7 @@ async function pageStudy(req, res) {
 }
 
 function pageGiveClasses(req, res) {
-    return res.render("give-classes.html", {subjects, weekdays})
+    return res.render("views/give-classes.html", {subjects, weekdays})
 }
 
 async function saveClasses(req, res) {
@@ -85,7 +85,7 @@ async function saveClasses(req, res) {
         queryString += "&weekday=" + req.body.weekday[0]
         queryString += "&time=" + req.body.time_from[0]
 
-        return res.redirect("/study" + queryString)
+        return res.redirect("views/study" + queryString)
     } catch (error) {
         console.log(error)
     }
