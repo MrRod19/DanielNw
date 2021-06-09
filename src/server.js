@@ -7,7 +7,7 @@ const {
     pageStudy,
     pageGiveClasses,
     saveClasses
-} = require("./pages")
+} = require("pages")
 
 //configurar nunjukcs (template engine)
 const nunjucks = require("nunjucks")
