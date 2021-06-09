@@ -11,7 +11,7 @@ const {
 
 //configurar nunjukcs (template engine)
 const nunjucks = require("nunjucks")
-nunjucks.configure("src/views", {
+nunjucks.configure("views", {
     express: server,
     noCache: true,
 })
@@ -21,9 +21,9 @@ server
 //receber os dados do req.body
 .use(express.urlencoded({ extended: true}))
 //configurar arquivos estáticos (css, scripts, imagens)
-.use(express.static("public"))
+.use(express.static("../public"))
 //rotas da aplicação
-.get("views/", pageLanding)
+.get("../index", pageLanding)
 .get("views/study", pageStudy)
 .get("views/give-classes", pageGiveClasses)
 .post("views/save-classes", saveClasses)

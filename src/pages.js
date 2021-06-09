@@ -3,7 +3,7 @@ const Database = require("database/db")
 const { subjects, weekdays, getSubject, convertHoursToMinutes } = require("utils/format")
 
 function pageLanding(req, res) {
-    return res.render("../../index.html")
+    return res.render("../index.html")
 }
 
 async function pageStudy(req, res) {
